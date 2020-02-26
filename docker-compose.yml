@@ -6,7 +6,7 @@ services:
     build: .
     ports:
       - '80:3000'
-    links:
+    external_links:
       - mongo
   mongo:
     container_name: mongo
