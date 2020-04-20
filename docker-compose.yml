@@ -6,15 +6,21 @@ services:
     build: .
     ports:
       - '80:3000'
+    networks:
+      - app-network
     links:
       - mongo
+    
   mongo:
     container_name: mongo
     image: mongo
     ports:
       - '27017:27017'
       volumes:
-      - mongodb_data_container:/data/db
-
-volumes:
-  mongodb_data_container:
+      - ./data/mongo:/data/db
+    networks:
+      - app-network
+      
+networks:
+  app-network:
+    driver: bridge
