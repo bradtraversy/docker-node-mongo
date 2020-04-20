@@ -1,4 +1,6 @@
 steps:
-- name: 'gcr.io/$PROJECT_ID/docker-compose'
-  args: [‘up’, ‘-d’]
-tags: ['cloud-builders-TEST']
+- name: docker/compose:1.24.0
+  args: ['up', '-d']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', 'workspace_app:latest', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
+images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
