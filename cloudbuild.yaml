@@ -1,4 +1,4 @@
-#cloudbuild.yaml
 steps:
-- name: ‘docker/compose:1.19.0’
+- name: 'gcr.io/$PROJECT_ID/docker-compose'
   args: [‘up’, ‘-d’]
+tags: ['cloud-builders-community']
