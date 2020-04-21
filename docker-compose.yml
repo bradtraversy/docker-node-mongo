@@ -9,11 +9,10 @@ services:
     networks:
       - app-network
     links:
-      - mongo
-    
+      - mongo    
   mongo:
     container_name: mongo
-    image: mongo
+    image: launcher.gcr.io/google/mongodb4
     ports:
       - '27017:27017'
     volumes:
