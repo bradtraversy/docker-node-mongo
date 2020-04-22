@@ -12,7 +12,7 @@ services:
       - mongo    
   mongo:
     container_name: mongo
-    image: launcher.gcr.io/google/mongodb4
+    image: mongo
     ports:
       - '27017:27017'
     volumes:
