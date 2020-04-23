@@ -5,11 +5,21 @@ services:
     restart: always
     build: .
     ports:
-      - '80:3000'
+      - '8080:3000'
+    networks:
+      - app-network
     links:
-      - mongo
+      - mongo    
   mongo:
     container_name: mongo
     image: mongo
     ports:
       - '27017:27017'
+    volumes:
+      - ./data:/data/db:z
+    networks:
+      - app-network
+      
+networks:
+  app-network:
+    driver: bridge
