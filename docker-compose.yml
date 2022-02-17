@@ -1,6 +1,7 @@
 version: '3'
 services:
   app:
+    image: node-mongo
     container_name: docker-node-mongo
     restart: always
     build: .
